@@ -53,3 +53,5 @@ $route['default_controller'] = 'C_main';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'back/C_dashboard';
+$route['channel'] = 'back/C_dashboard/channel';
+$route['program'] = 'back/C_dashboard/program';

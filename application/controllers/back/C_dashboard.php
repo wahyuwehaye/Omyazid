@@ -20,8 +20,23 @@ class C_dashboard extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('back/template/header');
+		$data['active_menu']='Dashboard';
+		$this->load->view('back/template/header',$data);
 		$this->load->view('back/dashboard');
+		$this->load->view('back/template/footer');
+	}
+
+	public function channel(){
+		$data['active_menu']='Channel';
+		$this->load->view('back/template/header',$data);
+		$this->load->view('back/channel');
+		$this->load->view('back/template/footer');
+	}
+
+	public function program(){
+		$data['active_menu']='Program';
+		$this->load->view('back/template/header',$data);
+		$this->load->view('back/program');
 		$this->load->view('back/template/footer');
 	}
 }
