@@ -24,28 +24,33 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <!-- 
+            <form role="form" action="<?php echo base_url(). 'crud_channel/tambah_channel'; ?>" method="post">
+             -->
+            <?php echo form_open_multipart('crud_channel/tambah_channel');?>
+            <?php echo $error;?>
               <div class="box-body">
                 <div class="form-group">
                   <label for="nochannel">No Channel</label>
-                  <input type="text" class="form-control" id="nochannel" placeholder="Input No Channel">
+                  <input type="text" class="form-control" name="no_channel" placeholder="Input No Channel">
                 </div>
                 <div class="form-group">
                   <label for="channelname">Channel Name</label>
-                  <input type="text" class="form-control" id="channelname" placeholder="Input Channel Name">
+                  <input type="text" class="form-control" name="channel_name" placeholder="Input Channel Name">
                 </div>
                 <!-- textarea -->
                 <div class="form-group">
                   <label>Synopsis Channel</label>
-                  <textarea class="form-control" rows="5" placeholder="Enter Synopsis Channel"></textarea>
+                  <textarea class="form-control" rows="5" name="synopsis_channel"
+                  placeholder="Enter Synopsis Channel"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="urlchannel">URL Promo Channel</label>
-                  <input type="text" class="form-control" id="urlchannel" placeholder="Input URL Promo Channel">
+                  <input type="text" class="form-control" name="url_promo_channel" placeholder="Input URL Promo Channel">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Image Channel</label>
-                  <input type="file" id="exampleInputFile">
+                  <input type="file" name="imgchannel">
                 </div>
               </div>
               <!-- /.box-body -->

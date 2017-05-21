@@ -29,7 +29,7 @@ class C_dashboard extends CI_Controller {
 	public function channel(){
 		$data['active_menu']='Channel';
 		$this->load->view('back/template/header',$data);
-		$this->load->view('back/channel');
+		$this->load->view('back/channel', array('error' => ' ' ));
 		$this->load->view('back/template/footer');
 	}
 

@@ -20,14 +20,21 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
 
-              <p>New Orders</p>
+              <h3>
+                <?php
+                  $this->db->select('id');
+                  $this->db->from('channel');
+                  echo $this->db->count_all_results();
+                ?>
+              </h3>
+
+              <p>Channels</p>
             </div>
             <div class="icon">
-              <i class="ion ion-bag"></i>
+              <i class="fa fa-television"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer">Lihat <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

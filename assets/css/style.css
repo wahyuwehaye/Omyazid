@@ -13,12 +13,12 @@ body
 }
 
 @font-face {
-        font-family: gothamb;
-        src: url(gothamblack.ttf);
+        font-family: 'gothamb';
+        src: url('../font/gothamblack.ttf') format('truetype');
 }
 @font-face {
-        font-family: gothammed;
-        src: url(gothammedium.ttf);
+        font-family: 'gothammed';
+        src: url('../font/gothammedium.ttf') format('opentype');
 }
 
 
