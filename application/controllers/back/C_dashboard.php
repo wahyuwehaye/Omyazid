@@ -36,7 +36,13 @@ class C_dashboard extends CI_Controller {
 	public function program(){
 		$data['active_menu']='Program';
 		$this->load->view('back/template/header',$data);
-		$this->load->view('back/program');
+		$dd_channel = array();
+			foreach ($this->m_data->get_channel as $dt_channel) 
+		{
+			$dd_channel[$dt_channel['id']] = $dt_channel['channel_name'];
+		}
+		$data2['$dt_channel']=$dd_channel;
+		$this->load->view('back/program', $data2);
 		$this->load->view('back/template/footer');
 	}
 }

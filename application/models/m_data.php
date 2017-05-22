@@ -23,5 +23,13 @@
 			$this->db->where($where);
 			$this->db->update($table,$data);
 		}
+
+		public function get_channel(){
+			$this->db->order_by('id');
+			$sql_channel=$this->db->get('channel');
+			if($sql_channel->num_rows()>0){
+				return $sql_channel->result_array();
+			}
+		}
 	}
 ?>

@@ -33,6 +33,9 @@
                 <!-- select -->
                 <div class="form-group">
                   <label>Channel</label>
+                  <?php
+                  form_dropdown('kd_channel',$dt_channel);
+                  ?>
                   <select class="form-control">
                     <option>option 1</option>
                     <option>option 2</option>
