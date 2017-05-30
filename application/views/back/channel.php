@@ -24,49 +24,49 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <!-- 
-            <form role="form" action="<?php echo base_url(). 'crud_channel/tambah_channel'; ?>" method="post">
-             -->
-            <?php echo form_open_multipart('crud_channel/tambah_channel');?>
-            <?php echo $error;?>
               <div class="box-body">
-                <div class="form-group">
-                  <label for="nochannel">No Channel</label>
-                  <input type="text" class="form-control" name="no_channel" placeholder="Input No Channel">
-                </div>
-                <div class="form-group">
-                  <label for="channelname">Channel Name</label>
-                  <input type="text" class="form-control" name="channel_name" placeholder="Input Channel Name">
-                </div>
-                <!-- textarea -->
-                <div class="form-group">
-                  <label>Synopsis Channel</label>
-                  <textarea class="form-control" rows="5" name="synopsis_channel"
-                  placeholder="Enter Synopsis Channel"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="urlchannel">URL Promo Channel</label>
-                  <input type="text" class="form-control" name="url_promo_channel" placeholder="Input URL Promo Channel">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputFile">Image Channel</label>
-                  <input type="file" name="imgchannel">
-                </div>
+                <button class="btn btn-success" onclick="add_channel()"><i class="glyphicon glyphicon-plus"></i> Add channel</button>
+                <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+                <br />
+                <br />
+                <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>No Channel</th>
+                            <th>Channel Name</th>
+                            <th>Synopsis Channel</th>
+                            <th>URL Promo</th>
+                            <th>Logo</th>
+                            <th style="width:150px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+
+                    <tfoot>
+                    <tr>
+                        <th>No Channel</th>
+                        <th>Channel Name</th>
+                        <th>Synopsis Channel</th>
+                        <th>URL Promo</th>
+                        <th>Logo</th>
+                        <th>Action</th>
+                    </tr>
+                    </tfoot>
+                </table>
               </div>
               <!-- /.box-body -->
-
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+               
               </div>
-            </form>
           </div>
+
           <!-- /.box -->
         </div>
         <!-- ./col -->
       </div>
       <!-- /.row -->
       
-
     </section>
     <!-- /.content -->
   </div>

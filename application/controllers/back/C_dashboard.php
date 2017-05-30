@@ -21,7 +21,7 @@ class C_dashboard extends CI_Controller {
 
 	public function __construct(){
         parent::__construct();
-        $this->load->model('M_data');
+        $this->load->model('Channel_model');
         $this->load->model('M_main');
     }
 
@@ -34,10 +34,14 @@ class C_dashboard extends CI_Controller {
 	}
 
 	public function channel(){
+		/*
+		$this->load->view('back/channel_view');
+		*/
 		$data['active_menu']='Channel';
 		$this->load->view('back/template/header',$data);
-		$this->load->view('back/channel', array('error' => ' ' ));
-		$this->load->view('back/template/footer');
+		$this->load->view('back/channel');
+		$this->load->view('back/template/footerChannel');
+
 	}
 
 	public function program(){
@@ -45,6 +49,6 @@ class C_dashboard extends CI_Controller {
 		$this->load->view('back/template/header',$data);
 		$data['channel'] = $this->db->query("select * from channel");
 		$this->load->view('back/program', $data);
-		$this->load->view('back/template/footer');
+		$this->load->view('back/template/footerProgram');
 	}
 }

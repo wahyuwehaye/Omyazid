@@ -24,176 +24,52 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
               <div class="box-body">
-                <div class="form-group">
-                  <label for="Programname">Program Name</label>
-                  <input type="text" class="form-control" id="Programname" placeholder="Input Program Name">
-                </div>
-                <!-- select -->
-                <div class="form-group">
-                  <label>Channel</label>
-                  <select name="channel" id="channel" class="form-control">
-                    <option>-- Pilih Channel --</option>
-                    <?php foreach($channel->result_array() as $row) {?>
-                      <option value="<?php echo $row['channel_name'];?>"><?php echo $row['channel_name']?></option>
-                    <?php }?>
-                  </select>
-                </div>
-                 <!-- Date -->
-                <div class="form-group">
-                  <label>Date</label>
+                <button class="btn btn-success" onclick="add_program()"><i class="glyphicon glyphicon-plus"></i> Add program</button>
+                <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+                <br />
+                <br />
+                <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Program Name</th>
+                            <th>Channel</th>
+                            <th>Date</th>
+                            <th>Time Start</th>
+                            <th>Time End</th>
+                            <th>Duration</th>
+                            <th>Synopsis Program</th>
+                            <th>Genre</th>
+                            <th>Parenting Categories</th>
+                            <th>Broadcast Type</th>
+                            <th>Url Teaser</th>
+                            <th style="width:125px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
 
-                  <div class="input-group date">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <input type="text" class="form-control pull-right" id="datepicker">
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- time Picker -->
-                <div class="bootstrap-timepicker col-md-6">
-                  <div class="form-group">
-                    <label>Start Time</label>
-
-                    <div class="input-group">
-                      <input type="text" class="form-control timepicker">
-
-                      <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                      </div>
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-                  <!-- /.form group -->
-                </div>
-                <div class="bootstrap-timepicker col-md-6">
-                  <div class="form-group">
-                    <label>End Time</label>
-
-                    <div class="input-group">
-                      <input type="text" class="form-control timepicker">
-
-                      <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                      </div>
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-                  <!-- /.form group -->
-                </div>
-                <div class="form-group">
-                  <label>Duration</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-addon">minutes</span>
-                  </div>
-                </div>
-                <!-- textarea -->
-                <div class="form-group">
-                  <label>Synopsis Program</label>
-                  <textarea class="form-control" rows="5" placeholder="Enter Synopsis Program"></textarea>
-                </div>
-                <!-- checkbox -->
-                <div class="form-group">
-                  <label>Gendre</label>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Movies
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Sport
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Family
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      News
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Favorite Channel
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Parenting Categories</label>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Semua Umur
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Dewasa
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Bimbingan Orang Tua
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Broadcast Types</label>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Live
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Live Delay
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Record
-                    </label>
-                  </div>
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox">
-                      Re Run
-                    </label>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="urlProgram">URL Teaser</label>
-                  <input type="text" class="form-control" id="urlProgram" placeholder="Input URL Promo Program">
-                </div>
+                    <tfoot>
+                    <tr>
+                        <th>Program Name</th>
+                        <th>Channel</th>
+                        <th>Date</th>
+                        <th>Time Start</th>
+                        <th>Time End</th>
+                        <th>Duration</th>
+                        <th>Synopsis Program</th>
+                        <th>Genre</th>
+                        <th>Parenting Categories</th>
+                        <th>Broadcast Type</th>
+                        <th>Url Teaser</th>
+                        <th>Action</th>
+                    </tr>
+                    </tfoot>
+                </table>
+              </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>
