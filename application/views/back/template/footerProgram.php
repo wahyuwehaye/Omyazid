@@ -106,9 +106,10 @@ function edit_program(id)
             $('[name="id"]').val(data.id);
             $('[name="program_name"]').val(data.program_name);
             $('[name="channel"]').val(data.channel);
-            $('[name="date"]').datepicker('update',data.date);
+            $('[name="tanggal"]').datepicker('update',data.tanggal);
             $('[name="time_start"]').val(data.time_start);
             $('[name="time_end"]').val(data.time_end);
+            $('[name="duration"]').val(data.duration);
             $('[name="synopsis_program"]').val(data.synopsis_program);
             $('[name="genre"]').val(data.genre);
             $('[name="parenting_categories"]').val(data.parenting_categories);
@@ -215,19 +216,19 @@ function delete_program(id)
             </div>
             <div class="modal-body form">
                 <form action="#" id="form" class="form-horizontal">
-                    <input type="hidden" value="" name="id"/> 
+                    <input type="hidden" value="" name="id" id="id" /> 
                     <div class="form-body">
                         <div class="form-group">
                             <label class="control-label col-md-3">Program Name</label>
                             <div class="col-md-9">
-                                <input name="program_name" placeholder="Program Name" class="form-control" type="text">
+                                <input name="program_name" id="program_name" placeholder="Program Name" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Channel</label>
                             <div class="col-md-9">
-                                <select name="channel" class="form-control">
+                                <select name="channel" id="channel" class="form-control">
                                     <?php foreach($channel->result_array() as $row) {?>
                                         <option value="<?php echo $row['channel_name'];?>"><?php echo $row['channel_name']?></option>
                                     <?php }?>
@@ -242,7 +243,7 @@ function delete_program(id)
                                     <div class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control pull-right" name="date" id="datepicker">
+                                    <input type="text" class="form-control pull-right" name="tanggal" id="datepicker">
                                   </div>
                                 <span class="help-block"></span>
                             </div>
@@ -279,7 +280,7 @@ function delete_program(id)
                             <label class="control-label col-md-3">Duration</label>
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="duration" value="60">
+                                    <input type="text" class="form-control" name="duration" id="duration" value="60">
                                     <span class="input-group-addon">minutes</span>
                                 </div>
                             </div>
@@ -288,7 +289,7 @@ function delete_program(id)
                         <div class="form-group">
                             <label class="control-label col-md-3">Synopsis Program</label>
                             <div class="col-md-9">
-                                <textarea name="synopsis_program" placeholder="Synopsis Program" class="form-control"></textarea>
+                                <textarea name="synopsis_program" id="synopsis_program" placeholder="Synopsis Program" class="form-control"></textarea>
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -297,31 +298,31 @@ function delete_program(id)
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre" value="Movie">
+                                  <input type="checkbox" name="genre[]" id="genre[]" value="Movie">
                                   Movies
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre" value="Sport">
+                                  <input type="checkbox" name="genre[]" id="genre[]" value="Sport">
                                   Sport
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre" value="Family">
+                                  <input type="checkbox" name="genre[]" id="genre[]" value="Family">
                                   Family
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre" value="News">
+                                  <input type="checkbox" name="genre[]" id="genre[]" value="News">
                                   News
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre" value="Favorite Channel">
+                                  <input type="checkbox" name="genre[]" id="genre[]" value="Favorite Channel">
                                   Favorite Channel
                                 </label>
                             </div>
@@ -333,31 +334,31 @@ function delete_program(id)
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories" value="G">
+                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="G">
                                   G - General
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories" value="PG">
+                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="PG">
                                   PG - Parenting Guidance
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories" value="PG13">
+                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="PG13">
                                   PG 13
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories" value="R">
+                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="R">
                                   R - Restricted
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories" value="NC17">
+                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="NC17">
                                   NC 17
                                 </label>
                             </div>
@@ -369,22 +370,22 @@ function delete_program(id)
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="broadcast_type" value="Live">Live
+                                  <input type="checkbox" name="broadcast_type[]" id="broadcast_type[]" value="Live">Live
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="broadcast_type" value="Live Delay">Live Delay
+                                  <input type="checkbox" name="broadcast_type[]" id="broadcast_type[]" value="Live Delay">Live Delay
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="broadcast_type" value="Record">Record
+                                  <input type="checkbox" name="broadcast_type[]" id="broadcast_type[]" value="Record">Record
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="broadcast_type" value="Re Run">Re Run
+                                  <input type="checkbox" name="broadcast_type[]" id="broadcast_type[]" value="Re Run">Re Run
                                 </label>
                             </div>
                             </div>
@@ -393,7 +394,7 @@ function delete_program(id)
                         <div class="form-group">
                             <label class="control-label col-md-3">Url Teaser</label>
                             <div class="col-md-9">
-                                <input name="url_teaser" placeholder="Url Teaser" class="form-control" type="text">
+                                <input name="url_teaser" id="url_teaser" placeholder="Url Teaser" class="form-control" type="text">
                                 <span class="help-block"></span>
                             </div>
                         </div>

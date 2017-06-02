@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Program_model extends CI_Model {
 
 	var $table = 'program';
-	var $column_order = array('program_name','channel','date','genre',null); //set column field database for datatable orderable
+	var $column_order = array('program_name','channel','tanggal','genre',null); //set column field database for datatable orderable
 	var $column_search = array('program_name','channel','genre'); //set column field database for datatable searchable just firstname , lastname , address are searchable
 	var $order = array('id' => 'desc'); // default order 
 

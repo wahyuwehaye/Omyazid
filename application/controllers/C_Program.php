@@ -27,7 +27,7 @@ class C_Program extends CI_Controller {
 			$row = array();
 			$row[] = $program->program_name;
 			$row[] = $program->channel;
-			$row[] = $program->date;
+			$row[] = $program->tanggal;
 			$row[] = $program->time_start;
 			$row[] = $program->time_end;
 			$row[] = $program->duration;
@@ -62,18 +62,21 @@ class C_Program extends CI_Controller {
 
 	public function ajax_add()
 	{
-		$this->_validate();
+		// $this->_validate();
+		$checkbox_genre = serialize($this->input->post('genre'));
+		$checkbox_parenting = serialize($this->input->post('parenting_categories'));
+		$checkbox_broadcast = serialize($this->input->post('broadcast_type'));
 		$data = array(
 				'program_name' => $this->input->post('program_name'),
 				'channel' => $this->input->post('channel'),
-				'date' => $this->input->post('date'),
+				'tanggal' => $this->input->post('tanggal'),
 				'time_start' => $this->input->post('time_start'),
 				'time_end' => $this->input->post('time_end'),
 				'duration' => $this->input->post('duration'),
 				'synopsis_program' => $this->input->post('synopsis_program'),
-				'genre' => $this->input->post('genre'),
-				'parenting_categories' => $this->input->post('parenting_categories'),
-				'broadcast_type' => $this->input->post('broadcast_type'),
+				'genre' => $checkbox_genre,
+				'parenting_categories' => $checkbox_parenting,
+				'broadcast_type' => $checkbox_broadcast,
 				'url_teaser' => $this->input->post('url_teaser')
 			);
 		$insert = $this->program->save($data);
@@ -82,18 +85,24 @@ class C_Program extends CI_Controller {
 
 	public function ajax_update()
 	{
-		$this->_validate();
+		// $this->_validate();
+		$checkbox_genre = serialize($this->input->post('genre'));
+		$checkbox_parenting = serialize($this->input->post('parenting_categories'));
+		$checkbox_broadcast = serialize($this->input->post('broadcast_type'));
 		$data = array(
 				'program_name' => $this->input->post('program_name'),
 				'channel' => $this->input->post('channel'),
-				'date' => $this->input->post('date'),
+				'tanggal' => $this->input->post('tanggal'),
 				'time_start' => $this->input->post('time_start'),
 				'time_end' => $this->input->post('time_end'),
 				'duration' => $this->input->post('duration'),
 				'synopsis_program' => $this->input->post('synopsis_program'),
-				'genre' => $this->input->post('genre'),
-				'parenting_categories' => $this->input->post('parenting_categories'),
-				'broadcast_type' => $this->input->post('broadcast_type'),
+				// 'genre' => $this->input->post('genre'),
+				// 'parenting_categories' => $this->input->post('parenting_categories'),
+				// 'broadcast_type' => $this->input->post('broadcast_type'),
+				'genre' => $checkbox_genre,
+				'parenting_categories' => $checkbox_parenting,
+				'broadcast_type' => $checkbox_broadcast,
 				'url_teaser' => $this->input->post('url_teaser')
 			);
 		$this->program->update(array('id' => $this->input->post('id')), $data);
