@@ -63,9 +63,23 @@ class C_Program extends CI_Controller {
 	public function ajax_add()
 	{
 		// $this->_validate();
-		$checkbox_genre = serialize($this->input->post('genre'));
-		$checkbox_parenting = serialize($this->input->post('parenting_categories'));
-		$checkbox_broadcast = serialize($this->input->post('broadcast_type'));
+		// $checkbox_genre = serialize($this->input->post('genre'));
+		// $checkbox_parenting = serialize($this->input->post('parenting_categories'));
+		// $checkbox_broadcast = serialize($this->input->post('broadcast_type'));
+		// <script>
+		// $(document).ready(function(){
+		//     $("button").click(function(){
+		//         var x = $this->input->post('genre').serializeArray();
+		//         $.each(x, function(i, field){
+		//         	if ((field.name) == "genre"){
+		//             var checkbox_genre = $("#results").append(field.value + " - ");
+		//             } else if ((field.name) == "chock"){
+		//             $("#results").append(field.value + " x ");
+		//             }
+		//         });
+		//     });
+		// });
+		// </script>
 		$data = array(
 				'program_name' => $this->input->post('program_name'),
 				'channel' => $this->input->post('channel'),
@@ -86,9 +100,9 @@ class C_Program extends CI_Controller {
 	public function ajax_update()
 	{
 		// $this->_validate();
-		$checkbox_genre = serialize($this->input->post('genre'));
-		$checkbox_parenting = serialize($this->input->post('parenting_categories'));
-		$checkbox_broadcast = serialize($this->input->post('broadcast_type'));
+		//$u_genre = text() $checkbox_genre;
+		// $checkbox_parenting = serialize($this->input->post('parenting_categories'));
+		// $checkbox_broadcast = serialize($this->input->post('broadcast_type'));
 		$data = array(
 				'program_name' => $this->input->post('program_name'),
 				'channel' => $this->input->post('channel'),
@@ -100,9 +114,9 @@ class C_Program extends CI_Controller {
 				// 'genre' => $this->input->post('genre'),
 				// 'parenting_categories' => $this->input->post('parenting_categories'),
 				// 'broadcast_type' => $this->input->post('broadcast_type'),
-				'genre' => $checkbox_genre,
-				'parenting_categories' => $checkbox_parenting,
-				'broadcast_type' => $checkbox_broadcast,
+				'genre' => $this->input->post('cb_genre'),
+				'parenting_categories' => $this->input->post('cb_pc'),
+				'broadcast_type' => $this->input->post('cb_bt'),
 				'url_teaser' => $this->input->post('url_teaser')
 			);
 		$this->program->update(array('id' => $this->input->post('id')), $data);

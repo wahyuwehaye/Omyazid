@@ -51,7 +51,11 @@ $(document).ready(function() {
 
     //Date picker
     $('#datepicker').datepicker({
-      autoclose: true
+        autoclose: true,
+        format: "yyyy-mm-dd",
+        todayHighlight: true,
+        todayBtn: true,
+        todayHighlight: true,  
     });
 
     $('.timepicker').timepicker({
@@ -298,34 +302,44 @@ function delete_program(id)
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" id="genre[]" value="Movie">
+                                  <input type="checkbox" name="genre[]" class="genre" value="Movie">
                                   Movies
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" id="genre[]" value="Sport">
+                                  <input type="checkbox" name="genre[]" class="genre" value="Sport">
                                   Sport
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" id="genre[]" value="Family">
+                                  <input type="checkbox" name="genre[]" class="genre" value="Family">
                                   Family
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" id="genre[]" value="News">
+                                  <input type="checkbox" name="genre[]" class="genre" value="News">
                                   News
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" id="genre[]" value="Favorite Channel">
+                                  <input type="checkbox" name="genre[]" class="genre" value="Favorite Channel">
                                   Favorite Channel
                                 </label>
                             </div>
+                            <script>
+                                 $(':checkbox').click(function () {
+                                     var arr = $('.genre:checked').map(function () {
+                                         return this.value;
+                                     }).get();
+                                     document.getElementById("cb_genre").value = arr;
+                                     console.log(arr);
+                                 });
+                            </script>
+                            <input type="hidden" name="cb_genre" id="cb_genre">
                             </div>
                                 <span class="help-block"></span>
                         </div>
@@ -334,35 +348,45 @@ function delete_program(id)
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="G">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="G">
                                   G - General
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="PG">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="PG">
                                   PG - Parenting Guidance
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="PG13">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="PG13">
                                   PG 13
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="R">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="R">
                                   R - Restricted
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" id="parenting_categories[]" value="NC17">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="NC17">
                                   NC 17
                                 </label>
                             </div>
                             </div>
+                            <script>
+                                $(':checkbox').click(function () {
+                                    var v_pc = $('.parcat:checked').map(function () {
+                                        return this.value;
+                                    }).get();
+                                    document.getElementById("cb_pc").value = v_pc;
+                                    console.log(v_pc);
+                                });
+                            </script>
+                            <input type="hidden" name="cb_pc" id="cb_pc">
                                 <span class="help-block"></span>
                         </div>
                         <div class="form-group">
@@ -370,24 +394,34 @@ function delete_program(id)
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="broadcast_type[]" id="broadcast_type[]" value="Live">Live
+                                  <input type="checkbox" name="broadcast_type[]" class="bro_type" value="Live">Live
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="broadcast_type[]" id="broadcast_type[]" value="Live Delay">Live Delay
+                                  <input type="checkbox" name="broadcast_type[]" class="bro_type" value="Live Delay">Live Delay
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="broadcast_type[]" id="broadcast_type[]" value="Record">Record
+                                  <input type="checkbox" name="broadcast_type[]" class="bro_type" value="Record">Record
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="broadcast_type[]" id="broadcast_type[]" value="Re Run">Re Run
+                                  <input type="checkbox" name="broadcast_type[]" class="bro_type" value="Re Run">Re Run
                                 </label>
                             </div>
+                            <script>
+                                $(':checkbox').click(function () {
+                                    var v_bt = $('.bro_type:checked').map(function () {
+                                        return this.value;
+                                    }).get();
+                                    document.getElementById("cb_bt").value = v_bt;
+                                    console.log(v_bt);
+                                });
+                            </script>
+                            <input type="hidden" name="cb_bt" id="cb_bt">
                             </div>
                                 <span class="help-block"></span>
                         </div>
