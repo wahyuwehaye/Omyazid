@@ -306,19 +306,25 @@ function delete_program(id)
                                 break;
                             }
                             // $dapetgenre = "Movie";
+                            $Vgenre1 = "";
+                            $Vgenre2 = "";
+                            $Vgenre3 = "";
+                            $Vgenre4 = "";
+                            $Vgenre5 = "";
                             if (stristr($dapetgenre, "Movie")) {
-                                $Vgenre = "checked";
-                            }elseif (stristr($dapetgenre, "Sport")) {
-                                $Vgenre = "checked";
-                            }elseif (stristr($dapetgenre, "Family")) {
-                                $Vgenre = "checked";
-                            }elseif (stristr($dapetgenre, "News")) {
-                                $Vgenre = "checked";
-                            }elseif (stristr($dapetgenre, "Favorite Channel")) {
-                                $Vgenre = "checked";
+                                $Vgenre1 = "checked";
                             }
-                            else{
-                                $Vgenre = "";
+                            if (stristr($dapetgenre, "Sport")) {
+                                $Vgenre2 = "checked";
+                            }
+                            if (stristr($dapetgenre, "Family")) {
+                                $Vgenre3 = "checked";
+                            }
+                            if (stristr($dapetgenre, "News")) {
+                                $Vgenre4 = "checked";
+                            }
+                            if (stristr($dapetgenre, "Favorite Channel")) {
+                                $Vgenre5 = "checked";
                             }
                         ?>
                         <p id="demo"></p>
@@ -327,31 +333,31 @@ function delete_program(id)
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="Movie" <?php echo $Vgenre; ?>>
+                                  <input type="checkbox" name="genre[]" class="genre" value="Movie" <?php echo $Vgenre1; ?>>
                                   Movies
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="Sport" <?php echo $Vgenre; ?>>
+                                  <input type="checkbox" name="genre[]" class="genre" value="Sport" <?php echo $Vgenre2; ?>>
                                   Sport
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="Family" <?php echo $Vgenre; ?>>
+                                  <input type="checkbox" name="genre[]" class="genre" value="Family" <?php echo $Vgenre3; ?>>
                                   Family
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="News" <?php echo $Vgenre; ?>>
+                                  <input type="checkbox" name="genre[]" class="genre" value="News" <?php echo $Vgenre4; ?>>
                                   News
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="Favorite Channel" <?php echo $Vgenre; ?>>
+                                  <input type="checkbox" name="genre[]" class="genre" value="Favorite Channel" <?php echo $Vgenre5; ?>>
                                   Favorite Channel
                                 </label>
                             </div>
