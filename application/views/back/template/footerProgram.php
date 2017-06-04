@@ -297,36 +297,61 @@ function delete_program(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
+                        <?php
+                            $CI =& get_instance();
+
+                            $getgenre = $CI->db->query('select genre from program where id="1"');
+                            foreach ($getgenre->result() as $row){
+                                $dapetgenre = $row->genre;
+                                break;
+                            }
+                            // $dapetgenre = "Movie";
+                            if (stristr($dapetgenre, "Movie")) {
+                                $Vgenre = "checked";
+                            }elseif (stristr($dapetgenre, "Sport")) {
+                                $Vgenre = "checked";
+                            }elseif (stristr($dapetgenre, "Family")) {
+                                $Vgenre = "checked";
+                            }elseif (stristr($dapetgenre, "News")) {
+                                $Vgenre = "checked";
+                            }elseif (stristr($dapetgenre, "Favorite Channel")) {
+                                $Vgenre = "checked";
+                            }
+                            else{
+                                $Vgenre = "";
+                            }
+                        ?>
+                        <p id="demo"></p>
                         <div class="form-group">
                             <label class="control-label col-md-3">Genre</label>
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="Movie">
+                                  <input type="checkbox" name="genre[]" class="genre" value="Movie" <?php echo $Vgenre; ?>>
                                   Movies
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="Sport">
+                                  <input type="checkbox" name="genre[]" class="genre" value="Sport" <?php echo $Vgenre; ?>>
                                   Sport
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="Family">
+                                  <input type="checkbox" name="genre[]" class="genre" value="Family" <?php echo $Vgenre; ?>>
                                   Family
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="News">
+                                  <input type="checkbox" name="genre[]" class="genre" value="News" <?php echo $Vgenre; ?>>
                                   News
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="genre[]" class="genre" value="Favorite Channel">
+                                  <input type="checkbox" name="genre[]" class="genre" value="Favorite Channel" <?php echo $Vgenre; ?>>
                                   Favorite Channel
                                 </label>
                             </div>
@@ -348,31 +373,31 @@ function delete_program(id)
                             <div class="col-md-5">
                                 <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="G">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="G - General">
                                   G - General
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="PG">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="PG - Parenting Guidance">
                                   PG - Parenting Guidance
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="PG13">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="PG 13">
                                   PG 13
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="R">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="R - Restricted">
                                   R - Restricted
                                 </label>
                             </div>
                             <div class="checkbox">
                                 <label>
-                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="NC17">
+                                  <input type="checkbox" name="parenting_categories[]" class="parcat" value="NC 17">
                                   NC 17
                                 </label>
                             </div>

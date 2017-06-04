@@ -88,9 +88,12 @@ class C_Program extends CI_Controller {
 				'time_end' => $this->input->post('time_end'),
 				'duration' => $this->input->post('duration'),
 				'synopsis_program' => $this->input->post('synopsis_program'),
-				'genre' => $checkbox_genre,
-				'parenting_categories' => $checkbox_parenting,
-				'broadcast_type' => $checkbox_broadcast,
+				// 'genre' => $checkbox_genre,
+				// 'parenting_categories' => $checkbox_parenting,
+				// 'broadcast_type' => $checkbox_broadcast,
+				'genre' => $this->input->post('cb_genre'),
+				'parenting_categories' => $this->input->post('cb_pc'),
+				'broadcast_type' => $this->input->post('cb_bt'),
 				'url_teaser' => $this->input->post('url_teaser')
 			);
 		$insert = $this->program->save($data);
